@@ -1,4 +1,4 @@
-![wc-title.jpg](https://i.ibb.co/9YwjhGr/Travel-Api-Logo.png)
+<div style="text-align:center"><img src="https://i.ibb.co/9YwjhGr/Travel-Api-Logo.png"/></div>
 
 ### _Created by Mr.Bates & Mr.Khakwan_
 
