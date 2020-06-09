@@ -1,4 +1,5 @@
 using TravelApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System;
 
 namespace TravelApi.Controllers
 {
+  [Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class PlacesController : ControllerBase

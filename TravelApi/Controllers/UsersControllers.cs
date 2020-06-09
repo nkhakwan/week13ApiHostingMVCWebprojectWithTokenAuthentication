@@ -36,7 +36,7 @@ namespace TravelApi.Controllers
             return Ok(user);
         }
 
-        [AllowAnonymous]
+        // [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {
