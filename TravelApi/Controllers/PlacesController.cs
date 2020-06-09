@@ -22,6 +22,7 @@ namespace TravelApi.Controllers
     [HttpGet]
     public ActionResult<IEnumerable<Place>> Get(int rating, string city, string country) // binds query parameter to this string description
     {
+      Console.WriteLine("We are inside places controller");
       var query = _db.Places.AsQueryable(); // returns all Places in database as a queryable LINQ object
       if (city == null && country == null && rating == 0)
       {
@@ -31,19 +32,19 @@ namespace TravelApi.Controllers
       if (rating > 0)
       {
         query = query.Where(entry => entry.Rating == rating);
-        Console.WriteLine("we are in ratings");
+        // Console.WriteLine("we are in ratings");
       }
       
       if (city != null)
       {
         query = query.Where(entry => entry.City == city);
-        Console.WriteLine("we are in city");
+        // Console.WriteLine("we are in city");
       }
 
       if (country != null)
       {
         query = query.Where(entry => entry.Country == country);
-        Console.WriteLine("we are in country");
+        // Console.WriteLine("we are in country");
       }
 
       return query.ToList(); 

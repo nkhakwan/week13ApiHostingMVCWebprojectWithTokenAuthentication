@@ -23,9 +23,3 @@ namespace TravelApi
     }
 }
 
-//two unique arrays
-// one is subset of another
-// return next greater example 
-// example:
-// Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
-// Output: [-1,3,-1]
