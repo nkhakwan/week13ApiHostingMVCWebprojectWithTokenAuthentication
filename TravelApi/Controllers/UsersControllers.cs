@@ -4,10 +4,12 @@ using TravelApi.Services;
 using TravelApi.Models;
 using System;
 
+
 namespace TravelApi.Controllers
 {
   [Authorize]
     [ApiController]
+    [Produces("application/json")]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {

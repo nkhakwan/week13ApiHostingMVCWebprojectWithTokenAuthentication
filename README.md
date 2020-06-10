@@ -37,7 +37,12 @@ dotnet watch run
 8. Go to your browser and enter the following url:
 
 ```sh
-http://localhost:5000
+http://localhost:5004
+```
+#### To Access the Swagger UI:
+Add the following to the url of the local host:
+```
+http://localhost:5004/swagger
 ```
 #### MySQL Installation & Configuration:
 1. Download the MySQL Community Server DMG file [here](https://dev.mysql.com/downloads/file/?id=484914) with the "No thanks, just start my download" link.
@@ -71,6 +76,7 @@ dotnet ef database update
 ## <a href="https://en.wikipedia.org/wiki/.NET_Core">.NET Core</a>
 ## <a href="https://www.postman.com/">Postman</a>
 ## <a href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ef/language-reference/entity-sql-language">Entity</a>
+## <a href="https://github.com/swagger-api">Swagger</a>
 ## <a href="https://www.mysql.com/products/workbench/">MySQL Workbench</a>
 
 ## _Specs_

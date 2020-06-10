@@ -1,3 +1,4 @@
+// using System.ComponentModel; // required for [DefaultValue(whatever)]
 using System.ComponentModel.DataAnnotations;
 
 namespace TravelApi.Models

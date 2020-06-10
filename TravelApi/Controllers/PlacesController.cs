@@ -1,14 +1,17 @@
-using TravelApi.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+using TravelApi.Models;
+
 
 namespace TravelApi.Controllers
 {
   [Authorize]
+  [Produces("application/json")]
   [Route("api/[controller]")]
   [ApiController]
   public class PlacesController : ControllerBase
@@ -58,8 +61,30 @@ namespace TravelApi.Controllers
       return _db.Places.FirstOrDefault(entry => entry.PlaceId == id);
     }
     
+    /// <summary>
+    /// Creates a Place.
+    /// </summary>
+    /// <remarks>
+    /// Sample request:
+    ///
+    ///     POST /Places
+    ///     {
+    ///        "placeId": 1,
+    ///        "City": "Seattle",
+    ///        "Country": "United States",
+    ///        "Description": "Always damp. Great bartenders."
+    ///        "Rating": 8/10 (would get rained on again)
+    ///     }
+    ///
+    /// </remarks>
+    /// <param name="place"></param>
+    /// <returns>A newly created place</returns>
+    /// <response code="201">Returns the newly created place</response>
+    /// <response code="400">If the place is null</response>
     // POST api/places
     [HttpPost] // adds new api entry
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public void Post([FromBody] Place place)
     {
       _db.Places.Add(place);
@@ -75,6 +100,10 @@ namespace TravelApi.Controllers
       _db.SaveChanges();
     }
 
+    /// <summary>
+    /// Deletes a specific place.
+    /// </summary>
+    /// <param name="id"></param>
     // DELETE api/places/5
     [HttpDelete("{id}")] // deletes existing api entry
     public void Delete(int id)
