@@ -26,24 +26,29 @@ namespace TravelApi.Controllers
     // GET api/places
     [HttpGet]
     public ActionResult<IEnumerable<Place>> Get(int rating, string city, string country) // binds query parameter to this string description
+    //public ActionResult<IEnumerable<Place>> Get() // binds query parameter to this string description
     {
-      Console.WriteLine("We are inside places controller");
+      Console.WriteLine("||||||||||||||||||||||||||||||||||||||||||We are inside places controller");
       var query = _db.Places.AsQueryable(); // returns all Places in database as a queryable LINQ object
-      if (city == null && country == null && rating == 0)
+     if (city == null && country == null && rating == 0)
       {
+        Console.WriteLine("|||||||||||||||||||||||||||||||||||Finally we know get is asking for null");
+       var Us =  _db.Places.FirstOrDefault(entry => entry.PlaceId == 1);
+        Console.WriteLine($"|||||||||||||||||||||||||||||||||||{Us.City}");
+
         return _db.Places.ToList();
       }
 
       if (rating > 0)
       {
         query = query.Where(entry => entry.Rating == rating);
-        // Console.WriteLine("we are in ratings");
+         Console.WriteLine("we are in ratings");
       }
       
       if (city != null)
       {
         query = query.Where(entry => entry.City == city);
-        // Console.WriteLine("we are in city");
+         Console.WriteLine("we are in city");
       }
 
       if (country != null)

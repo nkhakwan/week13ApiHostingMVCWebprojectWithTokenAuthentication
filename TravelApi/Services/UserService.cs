@@ -19,6 +19,9 @@ namespace TravelApi.Services
 
     public class UserService : IUserService
     {
+        //---- ------------------------------------------------------------------------------------------------------------------
+        //---- Please do not remove the commented out section below. This is there to keep the things working if we don't have DB
+        //-----------------------------------------------------------------------------------------------------------------------
         // users hardcoded for simplicity, store in a db with hashed passwords in production applications
         // private List<User> _users = new List<User>
         // { 
